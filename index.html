@@ -1,207 +1,259 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-<title>My Portfolio</title>
-<!-- Required meta tags -->
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!-- responsive -->
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-<link rel="stylesheet" href="css/normalize.css">
-<!--<link rel="stylesheet" href="css/style.css">-->
-<link rel="stylesheet" href="css/animate.css">
-<link rel="shortcut icon" href="images/favicon.ico.png">
-
+	<title>My Portfolio</title>
+	<!-- Required meta tags -->
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- responsive -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/normalize.css">
+	<!--<link rel="stylesheet" href="css/style.css">-->
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="shortcut icon" href="images/favicon.ico.png">
+  <script src="https://unpkg.com/react@18.0.0/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18.0.0/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
-
 <body>
 
 <div class="container">
 <!-- Content here -->
-
-
-<!-- Navigation -->
+<!--------------------
+Navigation
+----------------------->
 <nav class="navbar navbar-expand-md navber-light bg-light sticky-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="images/Pixel Art.jpg" width="50" height="50" alt="山ロゴ">
-        </a>
-            <h1>旭町スタジオ</h1>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="images/Pixel Art.jpg" width="50" height="50" alt="山ロゴ">
+    </a>
+      <h1>旭町スタジオ</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+        <span class="navbar-toggler-icon">
+				</span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav_item active">
-                    <a href="index.html" class="nav-link">HOME</a>
-                </li>
-                <li class="nav_item">
-                    <a href="contact.html" class="nav-link">CONTACT</a>
-                </li>
-
-            </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav_item active">
+              <a href="index.html" class="nav-link">HOME</a>
+            </li>
+            <li class="nav_item">
+              <a href="contact.html" class="nav-link">CONTACT</a>
+            </li>
+          </ul>
         </div>
     </div>
 </nav>
+<!---------------------
+jumbotronジャンボトロン
+-------------------------->
 <div class="jumbotron">
-    <div class="container">
-        <div class="jumbotron" style="max-width: 100%; height: auto; background:url(images/macbook-pro-1050973_640.jpg); background-size:cover;">
-            <h1 class="display-4 text-white ">ホームページ制作</h1>
-            <p class="lead text-white ">
-                This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
-                featured content or information.
-            </p>
-            <hr class="my-4 " >
-            <p class="lead text-white ">It uses utility classes for typography and spacing to space content out within the larger container.
-            </p>
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-        </div>
-    </div>
-    <div class="container">
-        <div class="contents">
-            <h2 class="display-5">WEBコーダー</h2>
-            <h3 class="display-5">こんにちわ。ヨコヤマナオノリと申します。</h3><br>
-            <p>IDEAひらめきアーティスティック思考性、どんなにこの言葉に憧れただろう。幼少期に祖母にちょうど図工の時間の公園の街路樹の風景を水彩画で描いた時から、小学校の図工の時間、２時間があっという間だった創作の時間、大人になったら、そんな時間を生きてゆくと決めていた。<br><br>
+  <div class="container">
+    <div class="jumbotron" style="max-width: 100%; height: auto; background:url(images/macbook-pro-1050973_640.jpg); background-size:cover;">
+      <h1 class="display-4 text-white ">ホームページ制作</h1>
+<!---------------
+	React
+---------------->
+	<h1 class="bg-primary text-white display-4">React</h1>
+		<div class="container mt-4">
+			<div id="root">Wait...</div>
+		</div>
+    <script type="text/babel">
+      let dom = document.querySelector('#root');
 
-                音楽に出会い没頭した期間を経て、AppleやJobsのテクノロジーに触れ、WEBの可能性を感じた。いざ頭で出来ると思っても、水彩画のようにはいかない、音楽との出会いで書いていたライムはいつしかコンピューター言語のテキストエディターにソースコードとして打ち込まれていく。ここには厳格なルールしかない。<br><br>
-                
-                テキトーに実行したら、エラーになるのだ。初めまして横山尚宣です。私はWEBのFRONT-ENDの学習をしております。主にHTML5/CSS3/Javascript/jQuery/Photoshop/illlustrater/Visualstudiocodeなどを使います。</p>
-           
-            <p class="lead">
-                    Lorm ipsm dolor sit
-                    amet. consectetur
-                    <mark>adipisicing</mark>
-                    elit.Quae dolors,
-                    inventore perfendis! Enim, accusamus porro
-                    tenetur ullam et ad dolorem!
-            </p>
-            <blackquorte class="blockquorte">
-                <p>Lorem ipsum dolor sit amet,consecteturadipiscing elit. Integposuere erat a ante.</p>
-            </blockquote>
-        </div>
-    </div>
+      let message = "React component page";
 
+      // 関数コンポーネントの名前を大文字で始める
+      function Welcome(props) {
+        return (
+          <div className="alert alert-primary">
+            <p className="h4">Hello React!!</p>
+          </div>
+        );
+      }
+
+      // 表示するJSX
+      let el = (
+        <div>
+          <h5 className="mb-4">{message}</h5>
+          <Welcome /> {/* コンポーネント名を大文字で始める */}
+        </div>
+      );
+
+      ReactDOM.render(el, dom);
+    </script>
+
+      <p class="lead text-white ">
+          This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
+          featured content or information.
+      </p>
+      <hr class="my-4">
+      <p class="lead text-white ">It uses utility classes for typography and spacing to space content out within the larger container.
+      </p>
+      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+  <div class="contents">
+    <h2 class="display-5">WEBコーダー</h2>
+      <h3 class="display-5">
+				こんにちわ。ヨコヤマナオノリです。
+			</h3>
+
+			<div id="root"></div>
+
+			<br>
+      <p>IDEAひらめきアーティスティック思考性、どんなにこの言葉に憧れただろう。幼少期に祖母にちょうど図工の時間の公園の街路樹の風景を水彩画で描いた時から、小学校の図工の時間、２時間があっという間だった創作の時間、大人になったら、そんな時間を生きてゆくと決めていた。
+			<br><br>
+      音楽に出会い没頭した期間を経て、AppleやJobsのテクノロジーに触れ、WEBの可能性を感じた。いざ頭で出来ると思っても、水彩画のようにはいかない、音楽との出会いで書いていたライムはいつしかコンピューター言語のテキストエディターにソースコードとして打ち込まれていく。ここには厳格なルールしかない。
+			<br><br>
+      テキトーに実行したら、エラーになるのだ。初めまして横山尚宣です。私はWEBのFRONT-ENDの学習をしております。主にHTML5/CSS3/Javascript/jQuery/Photoshop/illlustrater/Visualstudiocodeなどを使います。
+			</p>
+      <p class="lead">
+      Lorm ipsm dolor sit
+      amet. consectetur
+      <mark>adipisicing</mark>
+      elit.Quae dolors,
+      inventore perfendis! Enim, accusamus porro
+      tenetur ullam et ad dolorem!
+      </p>
+      <blackquorte class="blockquorte">
+      <p>Lorem ipsum dolor sit amet,consecteturadipiscing elit. Integposuere erat a ante.
+			</p>
+      </blockquote>
+    </div>
+  </div>
 <main>
 
 <section class="py-5">
-    <h2 class="text-center mb-5">Features</h2>
+  <h2 class="text-center mb-5">
+		Features
+	</h2>
 
-        <div class="container">
-            <h3>ホームページの制作でお困りの事はございませんか？</h3>
-
-            <p>L-sunsui</p>
-            <p>Hello.o.I am Japanese Web Designer I'd worked in japan</p>
-            <img style="max-width: 100%; height: auto;" src="images/toa10080-img600x451-1202641774spinagy_031.jpg" class="w-90 rounded-circle d-block mx-auto"　>
-        </div>
+  <div class="container">
+    <h3>ホームページの制作でお困りの事はございませんか？
+		</h3>
+			<p>L-sunsui</p>
+      <p>Hello.o.I am Japanese Web Designer I'd worked in japan
+			</p>
+      <img style="max-width: 100%; height: auto;" src="images/toa10080-img600x451-1202641774spinagy_031.jpg" class="w-90 rounded-circle d-block mx-auto">
+  </div>
         <!-- <img src="images/bs-eyecatch.png" class="w-90 rounded-circle d-block mx-auto""> -->
-
-
-        <div class="container">
-            <h3>WEB Design Instructor</h3>
-            <p>L-sunsui</p>
-            <p>Hello.o.I am Japanese Web Designer I'd worked in japan</p>
-            <img style="max-width: 100%; height: auto;" src="images/toa10080-img600x451-1202641774spinagy_031.jpg" class="w-90 rounded-circle d-block mx-auto">
-        </div>
+  <div class="container">
+    <h3>WEB Design Instructor</h3>
+      <p>L-sunsui</p>
+      <p>Hello.o.I am Japanese Web Designer I'd worked in japan</p>
+      <img style="max-width: 100%; height: auto;" src="images/toa10080-img600x451-1202641774spinagy_031.jpg" class="w-90 rounded-circle d-block mx-auto">
+  </div>
 </section>
 
 <section class="bg-light text-center py-5">
-    <h2 class="mb-5">Plans</h2>
-    <div class="container">
-        <p>WEBコーダーを経験いたしました。</p>
-        <p>HTML5、CSS3、Javascript、jQuey Visualstudiocode</p>
-        <p>SLACKを使いディレクターとコミュニケーションをとりタスクをこなしました。</p>
-        <p>週刊誌、月刊誌と連動したWEBサイトでしたのでスピード感を持ち業務をこなしました。</p>
-        <p>WEBコーダー経験し御社業務に貢献できると思います。</p>
-
-
-    </div>
+  <h2 class="mb-5">Plans</h2>
+  <div class="container">
+    <p>WEBコーダーを経験いたしました。</p>
+    <p>HTML5、CSS3、Javascript、jQuey Visualstudiocode</p>
+    <p>SLACKを使いディレクターとコミュニケーションをとりタスクをこなしました。</p>
+    <p>週刊誌、月刊誌と連動したWEBサイトでしたのでスピード感を持ち業務をこなしました。</p>
+    <p>WEBコーダー経験し御社業務に貢献できると思います。</p>
+  </div>
 </section>
 
 <section class="py-5">
-    <h2 class="mb-5 text-center">How to use</h2>
-        <div class="container">
-            <div class="form-row">
-                <div class="form-group col-sm-6">
-                  <label for="text4a">First name</label>
-                  <input type="text" class="form-control" id="text4a" placeholder="First name">
-                </div>
-                <div class="form-group col-sm-6">
-                  <label for="text4b">Last name</label>
-                  <input type="text" class="form-control" id="text4b" placeholder="Last name">
-                </div>
-              </div>
-              <div class="row">
-                <div class="form-group col-sm-6">
-                  <label for="text4c">First name</label>
-                  <input type="text" class="form-control" id="text4c" placeholder="First name">
-                </div>
-                <div class="form-group col-sm-6">
-                  <label for="text4d">Last name</label>
-                  <input type="text" class="form-control" id="text4d" placeholder="Last name">
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="text1">Text:</label>
-                <input type="text" id="text1" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="passwd1">Password:</label>
-                <input type="password" id="passwd1" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="textarea1">Textarea:</label>
-                <textarea id="textarea1" class="form-control"></textarea>
-              </div>
-
-              <div class="col-auto">
-                <div class="form-check mb-2">
-                  <input class="form-check-input" type="checkbox" id="check5">
-                  <label class="form-check-label" for="check5">Check</label>
-                </div>
-              </div>
-              <div class="col-auto">
-                <button type="submit" class="btn btn-primary mb-2">Submit</button>
-              </div>
-            </div>
-
-
+  <h2 class="mb-5 text-center">
+		How to use
+	</h2>
+    <div class="container">
+      <div class="form-row">
+        <div class="form-group col-sm-6">
+          <label for="text4a">First name</label>
+          <input type="text" class="form-control" id="text4a" placeholder="First name">
         </div>
+        <div class="form-group col-sm-6">
+          <label for="text4b">Last name</label>
+          <input type="text" class="form-control" id="text4b" placeholder="Last name">
+        </div>
+			</div>
+      <div class="row">
+      <div class="form-group col-sm-6">
+        <label for="text4c">First name</label>
+        <input type="text" class="form-control" id="text4c" placeholder="First name">
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="text4d">Last name</label>
+        <input type="text" class="form-control" id="text4d" placeholder="Last name">
+			</div>
+      </div>
+      <div class="form-group">
+        <label for="text1">Text:</label>
+        <input type="text" id="text1" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="passwd1">Password:</label>
+        <input type="password" id="passwd1" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="textarea1">Textarea:</label>
+        <textarea id="textarea1" class="form-control">
+				</textarea>
+      </div>
+      <div class="col-auto">
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" id="check5">
+          <label class="form-check-label" for="check5">
+						Check
+					</label>
+        </div>
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-2">
+					Submit
+				</button>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="bg-light text-center py-5">
 <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Launch demo modal
-    </button>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
 <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body"></div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+						Modal title
+					</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <div class="modal-body">
+				</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+						Close
+					</button>
+          <button type="button" class="btn btn-primary">
+						Save changes
+					</button>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 </main>
-    <footer class="text-center text-muted py-4">
-        <p>Copyright &copy;2021 旭町スタジオ All right reserved</p>
-        <img src="images/foddaer_34.png" width="230" height="45" alt="logo">
-    </footer>
+<footer class="text-center text-muted py-4">
+  <p>Copyright &copy;2023 旭町スタジオ All right reserved</p>
+  <img src="images/foddaer_34.png" width="230" height="45" alt="logo">
+</footer>
 </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -214,7 +266,9 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
     integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
     crossorigin="anonymous"></script>
-
 </div>
+
+
+	<!-- <script src="./js/script.js"></script> -->
 </body>
 </html>
