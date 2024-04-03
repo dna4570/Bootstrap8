@@ -13,14 +13,161 @@
 	<!--<link rel="stylesheet" href="css/style.css">-->
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="shortcut icon" href="images/favicon.ico.png">
-  <script src="https://unpkg.com/react@18.0.0/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@18.0.0/umd/react-dom.production.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+    <style>
+    .gallery {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .gallery-item {
+      width: 32%;
+      margin-left: 2%;
+      margin-bottom: 2%;
+    }
+    .gallery-item:nth-child(3n+1) {
+      margin-left: 0;
+    }
+    .gallery-item a {
+      display: block;
+      position: relative;
+    }
+    .gallery-item img {
+      vertical-align: bottom;
+    }
+    .gallery-item-hover {
+      display: flex;
+      /* background: rgba(0, 0, 0, .6); */
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .gallery-item-hover:hover {
+      opacity: 1;
+    }
+    .gallery-item-hover i {
+      color: #fff;
+      font-size: 40px;
+    }
+    .bg {
+      position: fixed;
+      display: flex;
+      /* background: rgba(0, 0, 0, .8); */
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    .modal {
+      position: relative;
+      cursor: default;
+      max-width: 90%;
+    }
+    .modal img {
+      border: 3px solid #fff;
+    }
+    .modal-btn {
+      position: absolute;
+      top: -25px;
+      right: -25px;
+      background: #111;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 20px;
+      border: 3px solid #fff;
+      width: 50px;
+      height: 50px;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+    .modal-btn:hover,
+    .modal-btn:focus,
+    .modal-btn:active {
+      border-color: #fff;
+    }
+    .fade-enter-active, .fade-leave-active {
+      transition: opacity .5s ease;
+    }
+    .fade-enter, .fade-leave-to {
+      opacity: 0;
+    }
+    .slide-enter-active, .slide-leave-active {
+      transition: top .5s ease;
+      top: 0;
+    }
+    .slide-enter {
+      top: -100px;
+    }
+    .slide-leave-to {
+      top: 300px;
+    }
+
+
+    .carousel__item {
+    min-height: 200px;
+    width: 100%;
+    background-color: var(--vc-clr-primary);
+    color: var(--vc-clr-white);
+    font-size: 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .carousel__slide {
+    padding: 10px;
+  }
+  .carousel__prev,
+  .carousel__next {
+    box-sizing: content-box;
+    border: 5px solid white;
+  }
+
+  .carousel__item {
+  min-height: 200px;
+  width: 100%;
+  background-color: var(--vc-clr-primary);
+  color: var(--vc-clr-white);
+  font-size: 20px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel__slide {
+  padding: 10px;
+}
+
+.carousel__prev,
+.carousel__next {
+  box-sizing: content-box;
+  border: 5px solid white;
+}
+  </style>
+
 </head>
 <body>
-
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 <div class="container">
-<!-- Content here -->
+
+
 <!--------------------
 Navigation
 ----------------------->
@@ -54,36 +201,66 @@ jumbotronジャンボトロン
     <div class="jumbotron" style="max-width: 100%; height: auto; background:url(images/macbook-pro-1050973_640.jpg); background-size:cover;">
       <h1 class="display-4 text-white ">ホームページ制作</h1>
 <!---------------
-	React
+	Vue
 ---------------->
-	<h1 class="bg-primary text-white display-4">React</h1>
+
+<div id="app">
+  {{ message }}
+</div>
+<script>
+new Vue({
+  el: "#app",
+  data:{
+    message: "Hello World!"
+    }
+});
+</script>
+<!------------
+  Vue3
+------------->
+<h3>Chart.js sample.</h3>
+<div style="width:400px; height: 400px;">
+  <canvas id="chart" width="400" height="400"></canvas>
+</div>
+<script>
+const ctx = document.querySelector('#chart');
+const chart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['東京', '大阪', '名古屋', 'ロンドン', 'パリ'],
+    datasets: [{
+      label: '2019年',
+      data: [7890, 6780, 5670, 3450, 2340],
+      backgroundColor:['#f003'],
+      borderColor:['blue'],
+      borderWidth:1,
+    },
+    {
+      label: '2020年',
+      data: [9630, 8520, 7410, 4560, 3690],
+      backgroundColor:['#0f03'],
+      borderColor:['green'],
+      borderWidth:1,
+    },
+    {
+      label: '2021年',
+      data: [12300, 9870, 8520, 6540, 4320],
+      backgroundColor:['#00f3'],
+      borderColor:['blue'],
+      borderWidth:1,
+    }]
+  },
+});
+</script>
+
+
+<!---------------
+	Vueジャンボトロン
+---------------->
+	<h1 class="bg-primary text-white display-4">Vue</h1>
 		<div class="container mt-4">
-			<div id="root">Wait...</div>
+			<div id="root">...の教科書</div>
 		</div>
-    <script type="text/babel">
-      let dom = document.querySelector('#root');
-
-      let message = "React component page";
-
-      // 関数コンポーネントの名前を大文字で始める
-      function Welcome(props) {
-        return (
-          <div className="alert alert-primary">
-            <p className="h4">Hello React!!</p>
-          </div>
-        );
-      }
-
-      // 表示するJSX
-      let el = (
-        <div>
-          <h5 className="mb-4">{message}</h5>
-          <Welcome /> {/* コンポーネント名を大文字で始める */}
-        </div>
-      );
-
-      ReactDOM.render(el, dom);
-    </script>
 
       <p class="lead text-white ">
           This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
@@ -96,6 +273,92 @@ jumbotronジャンボトロン
 		</div>
 	</div>
 </div>
+
+<div class="container" id="app">
+  <h1>もっと見る</h1>
+  <main class="main">
+    <article v-for="article in articles" class="card">
+      <img v-bind:src="article.thumbnail" alt="">
+    </article>
+  </main>
+  <button class="button" v-on:click="load" v-if="hasNext">もっと見る</button>
+</div>
+<!------------
+Vue3 カルーセル
+--------------->
+
+
+
+<!-------------
+  fetch API
+---------------->
+<!-- ------------------
+  Content here
+----------------------->
+<div class="container">
+<h1>List of post title:</h1>
+
+
+
+  <div class="container">
+    <h1>投稿一覧</h1>
+    <ul class="list-group">
+      <!-- ここに投稿が挿入されます -->
+    </ul>
+  </div>
+
+<script>
+fetch('./data.json')
+  .then(res => {
+    if (!res.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return res.json();
+  })
+  .then(data => {
+    data.forEach(post => {
+      document.querySelector('.list-group').insertAdjacentHTML('beforeend', `<li class="list-group-item">${post.title}</li>`);
+    });
+  })
+  .catch(error => {
+    console.error('There has been a problem with your fetch operation:', error);
+  });
+</script>
+<!---------------
+  Vue3 Lightbox
+----------------->
+
+
+<script>
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      src: null,
+      isShow: false
+    },
+    methods: {
+      zoom: function (event) {
+        this.src = event.currentTarget.getAttribute('href');
+        this.isShow = true;
+      },
+      close: function () {
+        this.isShow = false;
+      },
+      afterLeave: function () {
+        this.src = null;
+      }
+    }
+  });
+</script>
+
+<!-------------------
+  コンテナ非同期json
+-------------------->
+
+
+<!-------------------
+  コンテナ　文章
+---------------------->
 
 <div class="container">
   <div class="contents">
@@ -161,31 +424,54 @@ jumbotronジャンボトロン
     <p>WEBコーダー経験し御社業務に貢献できると思います。</p>
   </div>
 </section>
+<!-----
+  Map
+-------->
+<div id="map" style="width:500px; height:300px;background-color:black;"></div>
+<section>
+  <script>
+    const map = L.map('map').setView([35.723,140.156],16);
+    //map.setView([35.725, 140.155], 15);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').
+    addTo(map);
+    L.marker([35.72165,140.1563]).addTo(map)
+    .bindPopup(`<h3 style="color:red"><b>京成ユーカリが丘駅</b></h3>
+    <p>ユーカリが丘線と連結しています。<br>
+      ユーカリが丘線と連結してます。<p>`)
+      .openPopup();
+  </script>
+</section>
+
+
+<!----------------
+How to use
+------------------>
 
 <section class="py-5">
   <h2 class="mb-5 text-center">
 		How to use
 	</h2>
     <div class="container">
+      <form action="" class="form">
       <div class="form-row">
         <div class="form-group col-sm-6">
           <label for="text4a">First name</label>
-          <input type="text" class="form-control" id="text4a" placeholder="First name">
+          <input name="username" type="text" class="form-control" id="text4a" placeholder="First name">
         </div>
         <div class="form-group col-sm-6">
           <label for="text4b">Last name</label>
-          <input type="text" class="form-control" id="text4b" placeholder="Last name">
+          <input name="username" type="text" class="form-control" id="text4b" placeholder="Last name">
         </div>
 			</div>
       <div class="row">
-      <div class="form-group col-sm-6">
-        <label for="text4c">First name</label>
-        <input type="text" class="form-control" id="text4c" placeholder="First name">
-      </div>
-      <div class="form-group col-sm-6">
-        <label for="text4d">Last name</label>
-        <input type="text" class="form-control" id="text4d" placeholder="Last name">
-			</div>
+        <div class="form-group col-sm-6">
+          <label for="text4c">First name</label>
+          <input type="text" class="form-control" id="text4c" placeholder="First name">
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="text4d">Last name</label>
+          <input type="text" class="form-control" id="text4d" placeholder="Last name">
+        </div>
       </div>
       <div class="form-group">
         <label for="text1">Text:</label>
@@ -193,7 +479,7 @@ jumbotronジャンボトロン
       </div>
       <div class="form-group">
         <label for="passwd1">Password:</label>
-        <input type="password" id="passwd1" class="form-control">
+        <input name="password" type="password" id="passwd1" class="form-control">
       </div>
       <div class="form-group">
         <label for="textarea1">Textarea:</label>
@@ -202,7 +488,7 @@ jumbotronジャンボトロン
       </div>
       <div class="col-auto">
         <div class="form-check mb-2">
-          <input class="form-check-input" type="checkbox" id="check5">
+          <input name="termsconditions" class="form-check-input" type="checkbox" id="check5">
           <label class="form-check-label" for="check5">
 						Check
 					</label>
@@ -216,6 +502,30 @@ jumbotronジャンボトロン
     </div>
   </div>
 </section>
+<!----------------------
+Axiosアクシオすjson
+------------------------>
+<script>
+  const formEl = document.querySelector('.form_row');
+
+  formEl.addEventListenner('submit', event => {
+    event.preventDefault();
+
+    const formData = new FormData(formEl);
+    // formData.set('username');
+    const data = object.fromEntries(formData);
+
+    fetch('https://reqres.in/users',{
+    method: 'POST',
+    headers: {
+      'content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  }).then(res => res.json())
+     .then(data => console.log(data))
+     .catch(error => console.log(error));
+});
+</script>
 
 <section class="bg-light text-center py-5">
 <!-- Button trigger modal -->
@@ -249,26 +559,58 @@ jumbotronジャンボトロン
     </div>
   </div>
 </section>
-</main>
+
+<!----------------------
+  Vue3　カルーセル　スライダー
+----------------------->
+<template>
+  <Carousel>
+    <Slide v-for="slide in 10" :key="slide">
+      <div class="carousel__item">{{ slide }}</div>
+    </Slide>
+
+    <template #addons>
+      <Navigation />
+      <Pagination />
+    </template>
+  </Carousel>
+</template>
+
+
+<div id="container"></div>
+  <div id="modal"></div>
+
+<script type="module">
+  import data from "./data.json" assert { type: "json"};
+  console.log(data);
+  document.getElementById('container').innerHTML = html;
+document.getElementById('modal').innerHTML = modal;
+</script>
+
+<!---------
+  footerフッター
+----------->
+<script>
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then(response => response.json())
+      .then(json => console.log(json))
+</script>
+<!---------
+  footerフッター
+----------->
 <footer class="text-center text-muted py-4">
-  <p>Copyright &copy;2023 旭町スタジオ All right reserved</p>
+  <p>Copyright &copy;2024 旭町スタジオ All right reserved</p>
   <img src="images/foddaer_34.png" width="230" height="45" alt="logo">
 </footer>
-</div>
+
 <!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
     integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
     crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
     integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
     crossorigin="anonymous"></script>
-</div>
-
-
-	<!-- <script src="./js/script.js"></script> -->
+    <script src="./js/script.js"></script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 </body>
 </html>
